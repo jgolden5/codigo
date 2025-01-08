@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>C0DIGO</title>
+</head>
+<body>
+<h1>Can you crack the secret "código?"</h1>
+<input type="text" id="input">
+<button onclick="checkCodigo()">Submit</button>
+<p id="output">
+<p id="message">
+<link src="style.css"></link>
+<script>
+let attempt = 1
+
+function checkCodigo() {
+  const lowHint = "Look closely at the title"
+  const mediumHint = "Look at the title of the tab you're on"
+  const highHint = "The password is \"codigo\""
+  const motivation = "Keep trying!"
+  const inputVal = document.getElementById("input").value;
+  let message;
+  let outputVal;
+  if(inputVal.toLowerCase() === "codigo") {
+    outputVal = "You are correct :)"
+    outputVal = "Now that you know how the game works, let's move on to the real thing!"
+  } else {
+    outputVal = "Sorry, that's not right :( "
+    attempt++
+  }
+  if(attempt > 3) {
+    message = lowHint
+  } else if(attempt > 5) {
+    message = mediumHint
+  } else if(attempt > 3) {
+    message = highHint
+  } else {
+    message = motivation
+  }
+  document.getElementById("output").textContent = outputVal;
+  document.getElementById("message").textContent = message;
+}
+
+</script>
+</body>
+</html>
