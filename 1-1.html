@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1-1</title>
+</head>
+<body style="background:rgba(128,128,128,0.2">
+<h1>Welcome to World 1! Nothing in this world is case-sensitive, so it's rather quite easy for you, I think, but we'll see...</h1>
+<h1>1-1</h1>
+<h2>Here is a secret you may never guess...</h2>
+<input type="text" id="input">
+<button onclick="checkCode()">Submit</button>
+<p id="output"></p>
+<p id="message"></p>
+<button id="nextLevel" style="background: transparent; border: none; font-size: 0" onclick="nextLevel()">Next Level</button>
+<link src="style.css">
+<script>
+let attempt = 1
+
+function checkCode() {
+  const lowHint = "It's easier than you think"
+  const mediumHint = "What password do people come up with when they don't want to think of a password?"
+  const highHint = "This is probably the least-secure password that exists"
+  const motivation = "Keep trying! You'll guess this password eventually"
+  const inputVal = document.getElementById("input").value;
+  let message;
+  let outputVal;
+  if(inputVal.toLowerCase() === "password") {
+    outputVal = "You are correct :)"
+    message = "Now that you know how the game works, let's move on to the real thing!"
+    nextLevelButtonAppear()
+  } else {
+    outputVal = "Sorry, that's not right :( "
+    attempt++
+    if(attempt > 7) {
+      message = highHint
+    } else if(attempt > 5) {
+      message = mediumHint
+    } else if(attempt > 3) {
+      message = lowHint
+    } else {
+      message = motivation
+    }
+  }
+  document.getElementById("output").textContent = outputVal;
+  document.getElementById("message").textContent = message;
+}
+
+function nextLevelButtonAppear() {
+    document.getElementById("nextLevel").style.background = "rgba(128,128,128,0.1)";
+    document.getElementById("nextLevel").style.border = "solid";
+    document.getElementById("nextLevel").style.fontSize = "12px";
+}
+
+function nextLevel() {
+    window.location.href = "/Users/jgolden1/html_projects/codigo/1-1.html"
+}
+
+</script>
+</body>
+</html>

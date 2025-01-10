@@ -6,16 +6,17 @@
 <body>
 <h1>Can you crack the secret "codigo?"</h1>
 <input type="text" id="input">
-<button onclick="checkCodigo()">Submit</button>
-<p id="output">
-<p id="message">
-<link src="style.css"></link>
+<button onclick="checkCode()">Submit</button>
+<p id="output"></p>
+<p id="message"></p>
+<button id="nextLevel" style="background: transparent; border: none; font-size: 0" onclick="nextLevel()">Next Level</button>
+<link src="style.css">
 <script>
 let attempt = 1
 
-function checkCodigo() {
+function checkCode() {
   const lowHint = "Look closely at the title"
-  const mediumHint = "Look at the title of the tab you're on"
+  const mediumHint = "Look at the word INSIDE the quotes"
   const highHint = "The password is \"codigo\""
   const motivation = "Keep trying!"
   const inputVal = document.getElementById("input").value;
@@ -24,21 +25,32 @@ function checkCodigo() {
   if(inputVal.toLowerCase() === "codigo") {
     outputVal = "You are correct :)"
     message = "Now that you know how the game works, let's move on to the real thing!"
+    nextLevelButtonAppear()
   } else {
     outputVal = "Sorry, that's not right :( "
     attempt++
-    if(attempt > 3) {
-      message = lowHint
+    if(attempt > 7) {
+      message = highHint
     } else if(attempt > 5) {
       message = mediumHint
     } else if(attempt > 3) {
-      message = highHint
+      message = lowHint
     } else {
       message = motivation
     }
   }
   document.getElementById("output").textContent = outputVal;
   document.getElementById("message").textContent = message;
+}
+
+function nextLevelButtonAppear() {
+    document.getElementById("nextLevel").style.background = "rgba(128,128,128,0.1)";
+    document.getElementById("nextLevel").style.border = "solid";
+    document.getElementById("nextLevel").style.fontSize = "12px";
+}
+
+function nextLevel() {
+    window.location.href = "/Users/jgolden1/html_projects/codigo/1-1.html"
 }
 
 </script>
