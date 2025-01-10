@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>1-1</title>
+    <title>1-2</title>
 </head>
 <body style="background:rgba(128,128,128,0.2">
-<h1>1-1: Welcome to World 1! Nothing in this world is case-sensitive, so it's rather quite easy for you, I think, but we'll see if you can guess this <em>password</em></em></h1>
+<h1>1-2: This one is a little less obvious. See if you can figure it out...</h1>
 <p id="attempts"></p>
 <input type="text" id="input">
 <button onclick="checkCode()">Submit</button>
@@ -28,14 +28,14 @@ function updateAttemptsRemaining() {
 }
 
 function checkCode() {
-  const lowHint = "This is probably the least-secure password that exists"
-  const mediumHint = "What password do people come up with when they don't want to think of a password?"
-  const highHint = "Check the heading for something in italics..."
-  const motivation = "Keep trying! You'll guess this password eventually"
+  const lowHint = ""
+  const mediumHint = ""
+  const highHint = ""
+  const motivation = ""
   const inputVal = document.getElementById("input").value;
   let message;
   let outputVal;
-  if(inputVal.toLowerCase() === "password") {
+  if(inputVal.toLowerCase() === "I don't know yet") {
     outputVal = "You are correct :)"
     message = "You're doing great, for a beginner. But do you think you'll survive round 2??"
     nextLevelButtonAppear()
@@ -64,7 +64,7 @@ function nextLevelButtonAppear() {
 }
 
 function nextLevel() {
-    window.location.href = "/Users/jgolden1/html_projects/codigo/1-2.html"
+    window.location.href = "/Users/jgolden1/html_projects/codigo/1-3.html"
 }
 
 </script>
