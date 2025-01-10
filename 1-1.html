@@ -14,7 +14,7 @@
 <button id="nextLevel" style="background: transparent; border: none; font-size: 0" onclick="nextLevel()">Next Level</button>
 <link src="style.css">
 <script>
-let attempt = 1
+let attemptsRemaining = 1
 
 function checkCode() {
   const lowHint = "It's easier than you think"
@@ -30,12 +30,12 @@ function checkCode() {
     nextLevelButtonAppear()
   } else {
     outputVal = "Sorry, that's not right :( "
-    attempt++
-    if(attempt > 7) {
+    attemptsRemaining++
+    if(attemptsRemaining > 7) {
       message = highHint
-    } else if(attempt > 5) {
+    } else if(attemptsRemaining > 5) {
       message = mediumHint
-    } else if(attempt > 3) {
+    } else if(attemptsRemaining > 3) {
       message = lowHint
     } else {
       message = motivation

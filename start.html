@@ -12,7 +12,7 @@
 <button id="nextLevel" style="background: transparent; border: none; font-size: 0" onclick="nextLevel()">Next Level</button>
 <link src="style.css">
 <script>
-let attempt = 1
+let attemptsRemaining = 1
 
 function checkCode() {
   const lowHint = "Look closely at the title"
@@ -28,13 +28,13 @@ function checkCode() {
     nextLevelButtonAppear()
   } else {
     outputVal = "Sorry, that's not right :( "
-    attempt++
-    if(attempt > 7) {
-      message = highHint
-    } else if(attempt > 5) {
-      message = mediumHint
-    } else if(attempt > 3) {
+    attemptsRemaining++
+    if(attemptsRemaining < 7) {
       message = lowHint
+    } else if(attemptsRemaining < 5) {
+      message = mediumHint
+    } else if(attemptsRemaining < 3) {
+      message = highHint
     } else {
       message = motivation
     }
